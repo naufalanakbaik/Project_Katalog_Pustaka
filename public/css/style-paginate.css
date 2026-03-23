@@ -1,0 +1,36 @@
+.custom-pagination ul{
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.custom-pagination li {
+    margin: 0 5px;
+}
+
+.custom-pagination a {
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+    color: #000;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.custom-pagination .active span {
+    background-color: #34495e;
+    color: #fff;
+    border: 1px solid #34495e;
+    border-radius: 4px;
+    padding: 4px 10px;
+    display: block;
+}
+
+.custom-pagination .disabled span {
+    color: #34495e;
+    border: 1px solid #34495e;
+    border-radius: 4px;
+    padding: 4px 10px;
+    display: block;
+    pointer-events: none
+}
