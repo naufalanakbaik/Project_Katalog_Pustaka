@@ -28,7 +28,6 @@
                     class="w-24 h-24 rounded-full bg-gray-100 dark:bg-gray-800
                     flex items-center justify-center
                     border border-gray-200 dark:border-gray-700">
-
                     <span class="material-icons text-gray-400 !text-[40px]">
                         person
                     </span>

@@ -22,15 +22,15 @@
 <body class="bg-gray-100 dark:bg-gray-900">
 
     {{-- Top Head Information --}}
-    <div class="bg-gray-900 dark:bg-white text-gray-300 dark:text-gray-700 text-xs">
+    <div class="bg-gray-800 dark:bg-gray-200 text-gray-300 dark:text-gray-700 text-xs">
         <div class="max-w-7xl mx-auto px-8 py-2 flex justify-between items-center">
 
             <div class="flex items-center gap-6">
                 <span class="flex items-center gap-2">
                     Repository System
-                    <span class="text-gray-500 dark:text-gray-400">v1.0</span>
+                    <span class="text-gray-500 dark:text-gray-500">v1.0</span>
                 </span>
-                <span class="hidden md:block text-gray-500 dark:text-gray-400">
+                <span class="hidden md:block text-gray-500 dark:text-gray-500">
                     Sistem pengelolaan jurnal ilmiah dan karya akademik
                 </span>
             </div>
@@ -73,11 +73,32 @@
                     </a>
 
                     {{-- Menu --}}
-                    <div class="hidden md:flex items-center gap-8 text-sm">
-                        <a href="{{ route('publisher.dashboard') }}"
+                    <div class="hidden md:flex items-center gap-8 text-sm font-normal tracking-wide">
+
+                        {{-- <a href="{{ route('publisher.dashboard') }}"
                             class="transition duration-200 font-normal {{ request()->routeIs('publisher.dashboard')
                                 ? 'text-blue-600 dark:text-blue-400'
                                 : 'text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400' }}">
+                            Dashboard
+                        </a> --}}
+
+                        @php
+                            $isDashboardActive = request()->routeIs('publisher.dashboard');
+                        @endphp
+                        <a href="{{ route('publisher.dashboard') }}"
+                            class="relative transition
+                            {{ $isDashboardActive
+                                ? 'text-blue-600 dark:text-blue-400'
+                                : 'text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400' }}
+
+                            after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2
+                            after:-bottom-2 after:h-[3px] 
+                            after:bg-blue-600 after:rounded-full
+                            after:transition-all after:duration-300
+
+                            {{ $isDashboardActive
+                                ? 'after:w-8 after:bg-blue-600 dark:after:bg-blue-400'
+                                : 'after:w-0 after:bg-blue-600 dark:after:bg-blue-400 hover:after:w-8' }}">
                             Dashboard
                         </a>
 
@@ -147,18 +168,24 @@
                         rounded-xl shadow-lg opacity-0 invisible transition">
 
                         {{-- User Header --}}
-                        <div class="px-6 py-3 bg-gray-100 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 rounded-tl-xl rounded-tr-xl">
+                        <div
+                            class="px-6 py-3 bg-gray-100 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 rounded-tl-xl rounded-tr-xl">
 
                             <div class="flex items-center gap-3">
                                 <!-- Avatar -->
-                                <div class="h-10 w-10 rounded-full overflo
+                                <div
+                                    class="h-10 w-10 rounded-full overflo
                                 w-hidden shadow-sm ring-2 ring-white dark:ring-gray-900">
                                     @if (auth()->user()->photo)
                                         <img src="{{ asset('storage/' . auth()->user()->photo) }}" alt="Avatar"
                                             class="w-full h-full rounded-full border-gray-200 dark:border-gray-100 object-cover">
                                     @else
-                                        <div class="w-full h-full bg-gradient-to-br from-pink-500 to-rose-500 text-white flex items-center justify-center font-semibold text-sm">
-                                            {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
+                                        <div
+                                            class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800
+                                                flex items-center justify-center border border-gray-200 dark:border-gray-700">
+                                            <span class="material-icons text-gray-400 !text-[20px]">
+                                                person
+                                            </span>
                                         </div>
                                     @endif
                                 </div>

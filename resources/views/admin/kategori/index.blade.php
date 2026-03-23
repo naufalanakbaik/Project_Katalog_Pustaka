@@ -34,9 +34,9 @@
 </div>
 
 {{-- table data --}}
-<div class="overflow-x-auto border border-gray-300 rounded-md shadow-sm bg-white">
+<div class="overflow-x-auto border border-blue-300 rounded-md shadow-sm bg-white">
     <table class="w-full text-base">
-        <thead class="bg-gray-200 text-sm text-gray-900 border-b border-gray-300 tracking-wide">
+        <thead class="bg-gray-200 text-sm text-gray-900 border-b border-blue-300 tracking-wide">
             <tr>
                 <th class="px-2 py-3 text-center font-medium">No.</th>
                 <th class="px-5 py-3 text-left font-medium">Nama Kategori</th>

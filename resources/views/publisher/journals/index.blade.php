@@ -132,7 +132,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="5" class="px-6 py-14 text-center">
+                        <td colspan="5" class="px-6 py-14 text-left items-start justify-center text-gray-400 dark:text-gray-500">
                             <p class="text-gray-400 dark:text-gray-500 text-sm">
                                 Belum ada jurnal yang diupload.
                             </p>

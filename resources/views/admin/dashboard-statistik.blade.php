@@ -2,16 +2,16 @@
 <title>Dashboard | Pustaka Katalog</title>
 
 <!-- Header -->
-<div class="mb-8 bg-blue-50 p-8 border border-blue-200 rounded-lg shadow-sm">
-    <h2 class="text-3xl font-semibold text-gray-900 mb-3 flex items-center gap-2">
+<div class="mb-7 bg-gray-100 dark:bg-gray-800 p-8 border border-blue-300 dark:border-gray-500 rounded-lg shadow-sm">
+    <h2 class="text-3xl font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
         Selamat Datang di Katalog Pustaka
     </h2>
-    <p class="text-gray-800 leading-relaxed max-w-3xl">
-        Halo <span class="font-semibold text-indigo-800">{{ Auth::user()->name }}</span>,
-        selamat datang di <span class="font-semibold">Katalog Pustaka</span> — tempat dimana semua koleksi
+    <p class="text-gray-800 dark:text-gray-300 leading-relaxed max-w-3xl">
+        Halo <span class="font-semibold text-gray-800 dark:text-white">{{ Auth::user()->name }}</span>,
+        selamat datang di <span class="font-semibold">Katalog Pustaka</span> tempat dimana semua koleksi
         buku dan referensi tersedia hanya dalam sekali klik.
     </p>
-    <p class="mt-3 text-gray-800 leading-relaxed">
+    <p class="mt-3 text-gray-800 dark:text-gray-300 leading-relaxed">
         Dengan fitur pencarian cepat, statistik koleksi, hingga visualisasi data yang interaktif,
         kami berharap pengalaman membaca dan mengelola pustaka Anda menjadi lebih mudah, menyenangkan,
         dan bermanfaat. Mari bersama-sama menjelajahi dunia pengetahuan tanpa batas.
@@ -19,151 +19,177 @@
 </div>
 
 {{-- Statistik Data Buku --}}
-<section class="container mx-auto mb-9 px-4">
+<section class="container mx-auto mb-7 px-0">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {{-- Total Kategori --}}
-        <div
-            class="bg-white rounded-xl p-7 text-center shadow-sm border border-gray-200
-            hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-            <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-blue-100">
-                <span class="material-icons text-blue-600 text-3xl">
-                    folder
-                </span>
+        <div class="bg-blue-50 dark:bg-gray-900 border border-blue-300 dark:border-blue-300 
+            rounded-lg p-5 flex items-center justify-between
+            hover:shadow-md transition">
+            <div>
+                <div class="text-sm text-gray-700 dark:text-gray-300 mb-1">
+                    Total Kategori
+                </div>
+                <div class="text-2xl font-semibold text-gray-800 dark:text-white">
+                    {{ number_format($data['jmlKategori'] ?? 0) }}
+                </div>
             </div>
-            <div class="text-2xl font-semibold text-slate-800 mb-2">
-                {{ number_format($data['jmlKategori'] ?? 0) }}
-            </div>
-            <div class="text-sm text-slate-500">
-                Total Kategori
+            <div class="w-12 h-12 flex items-center justify-center 
+                rounded-full border border-blue-300 bg-blue-200">
+                <img src="{{ asset('img/icon-sidebar/kategori.png') }}"
+                    class="w-5 h-5 object-contain">
             </div>
         </div>
 
         {{-- Total Penerbit --}}
-        <div
-            class="bg-white rounded-xl p-7 text-center shadow-sm border border-gray-200
-            hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-            <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-emerald-100">
-                <span class="material-icons text-emerald-600 text-3xl">
-                    folder_shared
-                </span>
+        <div class="bg-emerald-50 dark:bg-gray-900 border border-emerald-300 dark:border-emerald-300 
+            rounded-lg p-5 flex items-center justify-between
+            hover:shadow-md transition">
+            <div>
+                <div class="text-sm text-gray-700 dark:text-gray-300 mb-1">
+                    Total Penerbit
+                </div>
+                <div class="text-2xl font-semibold text-gray-800 dark:text-white">
+                    {{ number_format($data['jmlPenerbit'] ?? 0) }}
+                </div>
             </div>
-            <div class="text-2xl font-semibold text-slate-800 mb-2">
-                {{ number_format($data['jmlPenerbit'] ?? 0) }}
-            </div>
-            <div class="text-sm text-slate-500">
-                Total Penerbit
+            <div class="w-12 h-12 flex items-center justify-center 
+                rounded-full border border-emerald-300 bg-emerald-200">
+                <img src="{{ asset('img/icon-sidebar/penerbit.png') }}"
+                    class="w-5 h-5 object-contain">
             </div>
         </div>
 
         {{-- Total Buku --}}
-        <div
-            class="bg-white rounded-xl p-7 text-center shadow-sm border border-gray-200
-            hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-            <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-pink-100">
-                <span class="material-icons text-pink-600 text-3xl">
-                    library_books
-                </span>
+        <div class="bg-pink-50 dark:bg-gray-900 border border-pink-300 dark:border-pink-300 
+            rounded-lg p-5 flex items-center justify-between
+            hover:shadow-md transition">
+            <div>
+                <div class="text-sm text-gray-700 dark:text-gray-300 mb-1">
+                    Total Buku
+                </div>
+                <div class="text-2xl font-semibold text-gray-800 dark:text-white">
+                    {{ number_format($data['jmlSemuaBuku'] ?? 0) }}
+                </div>
             </div>
-            <div class="text-2xl font-semibold text-slate-800 mb-2">
-                {{ number_format($data['jmlSemuaBuku'] ?? 0) }}
-            </div>
-            <div class="text-sm text-slate-500">
-                Total Buku
+            <div class="w-12 h-12 flex items-center justify-center 
+                rounded-full border border-pink-300 bg-pink-200">
+                <img src="{{ asset('img/icon-sidebar/buku.png') }}"
+                    class="w-5 h-5 object-contain">
             </div>
         </div>
 
         {{-- Total Anggota --}}
-        <div
-            class="bg-white rounded-xl p-7 text-center shadow-sm border border-gray-200
-            hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-            <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-amber-100">
-                <span class="material-icons text-amber-600 text-3xl">
-                    group
-                </span>
+        <div class="bg-amber-50 dark:bg-gray-900 border border-amber-300 dark:border-amber-300 
+            rounded-lg p-5 flex items-center justify-between
+            hover:shadow-md transition">
+            <div>
+                <div class="text-sm text-gray-700 dark:text-gray-300 mb-1">
+                    Total Anggota
+                </div>
+                <div class="text-2xl font-semibold text-gray-800 dark:text-white">
+                    {{ number_format($data['jmlAnggota'] ?? 0) }}
+                </div>
             </div>
-            <div class="text-2xl font-semibold text-slate-800 mb-2">
-                {{ number_format($data['jmlAnggota'] ?? 0) }}
-            </div>
-            <div class="text-sm text-slate-500">
-                Total Anggota
+            <div class="w-12 h-12 flex items-center justify-center 
+                rounded-full border border-amber-300 bg-amber-200">
+                <img src="{{ asset('img/icon-sidebar/anggota.png') }}"
+                    class="w-5 h-5 object-contain">
             </div>
         </div>
     </div>
 </section>
 
+{{-- Chart Buku per Kategori/ Penerbit --}}
 <section class="container mx-auto mb-8 grid grid-cols-1 lg:grid-cols-3 gap-4">
-    <!-- LINE CHART KATEGORI -->
-    <div class="lg:col-span-2 bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-        <div class="mb-6">
-            <h2 class="text-xl font-semibold text-gray-800">
-                Tren Buku per Kategori
-            </h2>
-            <p class="text-sm text-gray-500 mt-1">
-                Visualisasi distribusi jumlah buku berdasarkan kategori
-            </p>
+    <!-- Line Chart Kategori -->
+    <div class="lg:col-span-2 bg-white dark:bg-gray-900 border border-blue-300 dark:border-gray-700 
+        rounded-lg shadow-sm">
+        <div class="px-5 py-4 bg-gray-50 dark:bg-gray-800 rounded-t-lg border-b border-blue-300 dark:border-gray-700 
+            flex items-center justify-between">
+            <div>
+                <h2 class="text-base font-semibold text-gray-800 dark:text-white">
+                    Tren Buku per Kategori
+                </h2>
+                <p class="text-xs text-gray-500 dark:text-gray-500">
+                    Distribusi jumlah buku berdasarkan kategori
+                </p>
+            </div>
+            {{-- Placeholder action (biar terasa admin UI) --}}
+            <div class="text-xs text-gray-500">
+                2026
+            </div>
         </div>
-        <div class="w-full h-[380px]">
-            <canvas id="lineKategori"></canvas>
+        <div class="p-5">
+            <div class="w-full h-[340px]">
+                <canvas id="lineKategori"></canvas>
+            </div>
         </div>
     </div>
 
-    <!-- DOUGHNUT PENERBIT -->
-    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 flex flex-col">
-        <div class="mb-6">
-            <h2 class="text-xl font-semibold text-gray-800">
+    <!-- Donat Penerbit -->
+    <div class="bg-white dark:bg-gray-900 border border-blue-300 dark:border-gray-700 
+        rounded-lg shadow-sm flex flex-col">
+        <div class="px-5 py-4 bg-gray-50 dark:bg-gray-800 rounded-t-lg border-b border-blue-300 dark:border-gray-700">
+            <h2 class="text-base font-semibold text-gray-800 dark:text-white">
                 Distribusi Buku per Penerbit
             </h2>
-            <p class="text-xs text-gray-500">
-                Perbandingan jumlah buku aktif berdasarkan penerbit
+            <p class="text-xs text-gray-500 dark:text-gray-500">
+                Perbandingan jumlah buku aktif
             </p>
         </div>
-        <div class="flex-1 h-[320px]">
-            <canvas id="doughnutPenerbit"></canvas>
+        <div class="p-5 flex-1">
+            <div class="w-full h-[300px]">
+                <canvas id="doughnutPenerbit"></canvas>
+            </div>
         </div>
     </div>
 </section>
 
 <!-- Header Publisher & Jurnal -->
-<div class="mb-8 bg-blue-50 p-8 border border-blue-200 rounded-lg shadow-sm">
-    <h2 class="text-xl font-semibold text-gray-900 mb-1 flex items-center gap-2">
+<div class="mb-7 bg-gray-100 dark:bg-gray-800 p-7 border border-blue-300 dark:border-gray-500 rounded-lg shadow-sm">
+    <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-300 mb-1 flex items-center gap-2">
         Statistik Jurnal & Publisher
     </h2>
-    <p class="text-gray-800 leading-relaxed max-w-3xl">
+    <p class="text-gray-800 dark:text-gray-300 leading-relaxed max-w-3xl">
         Berikut adalah ringkasan statistik terkait jurnal yang telah diajukan oleh para publisher.
         Data ini mencakup total jurnal, status review, serta tren pengajuan jurnal dalam beberapa bulan terakhir.
     </p>
 </div>
 
 {{-- Statistik Data Jurnal --}}
-<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
     {{-- Total Jurnal --}}
-    <div class="bg-white shadow-sm rounded-lg p-6 border border-gray-100 items-center text-center">
-        <h3 class="text-sm text-gray-500">Total Jurnal</h3>
-        <p class="text-3xl font-semibold text-blue-700 mt-2">
+    <div class="bg-white dark:bg-gray-900 border border-l-4 border-blue-400 dark:border-gray-700 
+        rounded-lg p-5 shadow-sm hover:shadow-md transition">
+        <h3 class="text-xs text-gray-600">Total Jurnal</h3>
+        <p class="text-2xl font-semibold text-gray-800 dark:text-white mt-1">
             {{ $statJurnal->total }}
         </p>
     </div>
 
     {{-- Pending --}}
-    <div class="bg-yellow-50 shadow-sm rounded-lg p-6 border border-yellow-100 items-center text-center">
-        <h3 class="text-sm text-yellow-600">Jurnal Ditunda</h3>
-        <p class="text-3xl font-semibold text-yellow-700 mt-2">
+    <div class="bg-white dark:bg-gray-900 border border-l-4 border-amber-300 dark:border-gray-700 
+        rounded-lg p-5 shadow-sm hover:shadow-md transition">
+        <h3 class="text-xs text-amber-600">Jurnal Ditunda</h3>
+        <p class="text-2xl font-semibold text-gray-800 dark:text-white mt-1">
             {{ $statJurnal->pending }}
         </p>
     </div>
 
     {{-- Approved --}}
-    <div class="bg-green-50 shadow-sm rounded-lg p-6 border border-green-100 items-center text-center">
-        <h3 class="text-sm text-green-600">Jurnal Disetujui</h3>
-        <p class="text-3xl font-semibold text-green-700 mt-2">
+    <div class="bg-white dark:bg-gray-900 border border-l-4 border-emerald-400 dark:border-gray-700 
+        rounded-lg p-5 shadow-sm hover:shadow-md transition">
+        <h3 class="text-xs text-emerald-600">Jurnal Disetujui</h3>
+        <p class="text-2xl font-semibold text-gray-800 dark:text-white mt-1">
             {{ $statJurnal->approved }}
         </p>
     </div>
 
     {{-- Rejected --}}
-    <div class="bg-red-50 shadow-sm rounded-lg p-6 border border-red-100 items-center text-center">
-        <h3 class="text-sm text-red-600">Jurnal Ditolak</h3>
-        <p class="text-3xl font-semibold text-red-700 mt-2">
+    <div class="bg-white dark:bg-gray-900 border border-l-4 border-red-400 dark:border-gray-700 
+        rounded-lg p-5 shadow-sm hover:shadow-md transition">
+        <h3 class="text-xs text-red-600">Jurnal Ditolak</h3>
+        <p class="text-2xl font-semibold text-gray-800 dark:text-white mt-1">
             {{ $statJurnal->rejected }}
         </p>
     </div>
@@ -172,59 +198,90 @@
 {{-- Statistik Approved, Disetujui, dan Publisher Aktif --}}
 <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
     {{-- Approval Rate --}}
-    <div class="bg-white shadow-sm rounded-lg p-6 border">
-        <h3 class="text-sm text-gray-500">Approval Rate</h3>
-        <p class="text-2xl font-semibold text-indigo-700 mt-2">
-            {{ $approvalRate }}%
-        </p>
+    <div class="bg-white dark:bg-gray-900 border border-l-4 border-indigo-600 dark:border-gray-700 
+        rounded-lg p-5 shadow-sm hover:shadow-md transition">
+        <h3 class="text-xs text-gray-500">Approval Rate</h3>
+        <div class="flex items-end justify-between mt-2">
+            <p class="text-2xl font-semibold text-gray-800 dark:text-white">
+                {{ $approvalRate }}%
+            </p>
+            <span class="text-xs text-indigo-600">
+                rasio persetujuan
+            </span>
+        </div>
     </div>
 
     {{-- Approved This Month --}}
-    <div class="bg-white shadow-sm rounded-lg p-6 border">
-        <h3 class="text-sm text-gray-500">Disetujui Bulan Ini</h3>
-        <p class="text-2xl font-semibold text-green-700 mt-2">
-            {{ $approvedThisMonth }}
-        </p>
+    <div class="bg-white dark:bg-gray-900 border border-l-4 border-green-600 dark:border-gray-700 
+        rounded-lg p-5 shadow-sm hover:shadow-md transition">
+        <h3 class="text-xs text-gray-500">Disetujui Bulan Ini</h3>
+        <div class="flex items-end justify-between mt-2">
+            <p class="text-2xl font-semibold text-gray-800 dark:text-white">
+                {{ $approvedThisMonth }}
+            </p>
+            <span class="text-xs text-green-600">
+                bulan berjalan
+            </span>
+        </div>
     </div>
 
     {{-- Publisher Aktif --}}
-    <div class="bg-white shadow rounded-lg p-6 border">
-        <h3 class="text-sm text-gray-500">Publisher Aktif</h3>
-        <p class="text-2xl font-semibold text-blue-700 mt-2">
-            {{ $publisherAktif }}
-        </p>
+    <div class="bg-white dark:bg-gray-900 border border-l-4 border-blue-600 dark:border-gray-700 
+        rounded-lg p-5 shadow-sm hover:shadow-md transition">
+        <h3 class="text-xs text-gray-500">Publisher Aktif</h3>
+        <div class="flex items-end justify-between mt-2">
+            <p class="text-2xl font-semibold text-gray-800 dark:text-white">
+                {{ $publisherAktif }}
+            </p>
+            <span class="text-xs text-blue-600">
+                saat ini
+            </span>
+        </div>
     </div>
 </section>
 
 {{-- Grafik Jurnal per Publisher --}}
 <section class="container mx-auto mt-6 grid grid-cols-1 lg:grid-cols-3 gap-4">
-    {{-- LINE CHART - 6 BULAN --}}
-    <div class="lg:col-span-2 bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-        <div class="mb-6">
-            <h2 class="text-xl font-semibold text-gray-800">
-                Grafik Jurnal per Publisher
-            </h2>
-            <p class="text-sm text-gray-500 mt-1">
-                Tren jumlah jurnal yang masuk dan diproses berdasarkan publisher
-            </p>
+
+    {{-- Line Chart 6 bulan terakhir --}}
+    <div class="lg:col-span-2 bg-white dark:bg-gray-900 border border-blue-300 dark:border-gray-700 
+        rounded-lg shadow-sm">
+        <div class="px-5 py-4 bg-gray-50 dark:bg-gray-800 border-b border-blue-300 dark:border-gray-700 rounded-t-lg 
+            flex items-center justify-between">
+            <div>
+                <h2 class="text-base font-semibold text-gray-800 dark:text-white">
+                    Grafik Jurnal per Publisher
+                </h2>
+                <p class="text-xs text-gray-500 dark:text-gray-500">
+                    Tren jurnal berdasarkan publisher
+                </p>
+            </div>
+            <div class="text-xs text-gray-500">
+                6 Bulan
+            </div>
         </div>
-        <div class="w-full h-[380px]">
-            <canvas id="publisherChart" height="100"></canvas>
+        <div class="p-5">
+            <div class="w-full h-[340px]">
+                <canvas id="publisherChart"></canvas>
+            </div>
         </div>
     </div>
 
-    {{-- STATUS CHART --}}
-    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 flex flex-col">
-        <div class="mb-6">
-            <h2 class="text-xl font-semibold text-gray-800">
+    {{-- Donat Status Chart --}}
+    <div class="bg-white dark:bg-gray-900 border border-blue-300 dark:border-gray-700 
+        rounded-lg shadow-sm flex flex-col">
+        <div class="px-5 py-4 bg-gray-50 dark:bg-gray-800 border-b border-blue-300 dark:border-gray-700 rounded-t-lg">
+            <h2 class="text-base font-semibold text-gray-800 dark:text-white">
                 Grafik Status Jurnal
             </h2>
-            <p class="text-xs text-gray-500">
-                Distribusi jurnal berdasarkan status validasi
+            <p class="text-xs text-gray-500 dark:text-gray-500">
+                Distribusi berdasarkan status
             </p>
         </div>
-        <div class="flex-1 h-[320px]">
-            <canvas id="statusChart"></canvas>
+        <div class="p-5 flex-1">
+            <div class="w-full h-[300px]">
+                <canvas id="statusChart"></canvas>
+            </div>
         </div>
     </div>
 </section>
@@ -292,8 +349,8 @@
 </div> --}}
 
 <!-- Penutup -->
-<div class="bg-gray-50 border border-gray-200 rounded-lg p-6 shadow-inner mt-8">
-    <p class="text-gray-700 leading-relaxed max-w-4xl mx-auto text-center">
+<div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-500 rounded-lg p-6 shadow-inner mt-8">
+    <p class="text-gray-700 dark:text-gray-300 leading-relaxed max-w-4xl mx-auto text-center">
         Sistem ini terus berkembang untuk memberikan kemudahan dalam pengelolaan perpustakaan.
         Jangan ragu untuk menjelajahi lebih banyak fitur dan manfaatkan semaksimal mungkin.
     </p>

@@ -112,7 +112,7 @@
     </style>
 </head>
 
-<body class="bg-gray-200">
+<body class="bg-gray-200 dark:bg-gray-800">
     <div class="flex h-screen">
         <aside id="sidebar"
             class="fixed top-0 left-0 h-screen w-64 bg-white 
@@ -282,7 +282,7 @@
 
         {{-- Header katalog dan logout --}}
         <div id="mainContent" class="flex-1 flex flex-col ml-64 transition-all duration-300">
-            <header class=" bg-white shadow flex items-center justify-between p-4">
+            <header class=" bg-white dark:bg-gray-900 dark:border-b border-gray-500 shadow flex items-center justify-between p-4">
 
                 {{-- Head Right Logo --}}
                 <img src="{{ asset('img/katalog-pustaka2.png') }}" alt="Logo Katalog Pustaka" class="h-10 w-auto ml-3">
@@ -372,75 +372,106 @@
                         <button id="profileBtn" class="flex items-center focus:outline-none">
                             <img src="{{ asset('img/icon/profile-blue-icon.png') }}" alt="Profil"
                                 class="w-9 h-9 rounded-full border border-gray-200">
-                            <span class="ml-3 text-gray-800 font-normal text-sm">{{ Auth::user()->name }}</span>
+                            <span class="ml-3 text-gray-800 dark:text-gray-200 font-normal text-sm">{{ Auth::user()->name }}</span>
                             <span id="profileIcon"
-                                class="material-icons mt-0.5 ml-2 transform transition-transform duration-200 text-gray-600 menu-text !text-[19px]">arrow_drop_down</span>
+                                class="material-icons mt-0.5 ml-2 transform transition-transform duration-200 text-gray-600 dark:text-gray-200 menu-text !text-[19px]">arrow_drop_down</span>
                         </button>
 
                         {{-- Dropdown profil --}}
                         <div id="profileDropdown"
-                            class="absolute right-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-sm hidden overflow-hidden z-50">
+                            class="absolute right-0 mt-2 w-56 bg-white dark:bg-gray-900 
+                                border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm hidden overflow-hidden z-50">
                             {{-- HEADER --}}
-                            <div class="flex items-center justify-center px-4 py-3 border-b border-gray-200">
-                                <span class="text-sm font-semibold text-gray-800 tracking-wide">
-                                    Menu
-                                </span>
+                            <div class="px-4 py-3 border-b border-gray-200 dark:border-gray-700">
+                                <div class="flex flex-col">
+                                    <span class="text-sm font-semibold text-gray-800 dark:text-white">
+                                        Menu
+                                    </span>
+                                    {{-- Tanggal Hari Ini --}}
+                                    <span class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                                        {{ \Carbon\Carbon::now()->translatedFormat('l, d F Y') }}
+                                    </span>
+                                </div>
                             </div>
 
-                            {{-- Kotak pesan masuk --}}
-                            @if (auth()->check() && auth()->user()->role === 'admin')
-                                <a href="{{ route('admin.contact.index') }}"
-                                    class="flex items-center px-5 py-2.5 text-sm text-gray-700 hover:bg-blue-50 transition">
-                                    <img src="{{ asset('img/icon-dropdown/next.png') }}" alt="Pesan Masuk"
-                                        class="w-5 h-5 mr-2 object-contain">
-                                    <span class="font-normal text-gray-800">Kontak Pesan Masuk</span>
-                                </a>
-                            @endif
+                            {{-- MENU --}}
+                            <div class="py-1">
+                                {{-- Pesan Masuk --}}
+                                @if (auth()->check() && auth()->user()->role === 'admin')
+                                    <a href="{{ route('admin.contact.index') }}"
+                                        class="flex items-center gap-3 px-5 py-2 text-sm text-gray-700 dark:text-gray-300 
+                                            hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                                        <img src="{{ asset('img/icon-dropdown/pesan.png') }}"
+                                            class="w-5 h-5 object-contain">
+                                        <span>Kontak Pesan Masuk</span>
+                                    </a>
+                                @endif
 
-                            {{-- Jurnal Masuk --}}
-                            @if (auth()->check() && auth()->user()->role === 'admin')
-                                <a href="{{ route('admin.journals.index') }}"
-                                    class="flex items-center px-5 py-2.5 text-sm text-gray-700 hover:bg-blue-50 transition">
-                                    <img src="{{ asset('img/icon-dropdown/journals.png') }}" alt="Jurnal Masuk"
-                                        class="w-5 h-5 mr-2 object-contain">
-                                    <span class="font-normal text-gray-800">Jurnal Masuk</span>
-                                </a>
-                            @endif
+                                {{-- Jurnal Masuk --}}
+                                @if (auth()->check() && auth()->user()->role === 'admin')
+                                    <a href="{{ route('admin.journals.index') }}"
+                                        class="flex items-center gap-3 px-5 py-2 text-sm text-gray-700 dark:text-gray-300 
+                                            hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                                        <img src="{{ asset('img/icon-dropdown/journals.png') }}"
+                                            class="w-5 h-5 object-contain">
+                                        <span>Jurnal Masuk</span>
+                                    </a>
+                                @endif
 
-                            {{-- Edit Profil --}}
-                            @if (Auth::check())
-                                <a href="{{ route('admin.users.edit', Auth::id()) }}"
-                                    class="flex items-center px-5 py-2.5 text-sm text-gray-700 hover:bg-blue-50 transition">
-                                    <img src="{{ asset('img/icon-dropdown/akun.png') }}" alt="Jurnal Masuk"
-                                        class="w-5 h-5 mr-2 object-contain">
-                                    <span class="font-normal text-gray-800">Edit Profil Saya</span> </a>
-                            @endif
+                                {{-- Edit Profil --}}
+                                @if (Auth::check())
+                                    <a href="{{ route('admin.users.edit', Auth::id()) }}"
+                                        class="flex items-center gap-3 px-5 py-2 text-sm text-gray-700 dark:text-gray-300 
+                                            hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                                        <img src="{{ asset('img/icon-dropdown/akun.png') }}"
+                                            class="w-5 h-5 object-contain">
+                                        <span>Edit Profil Saya</span>
+                                    </a>
+                                @endif
 
-                            {{-- Fullscreen --}}
-                            <button id="fullscreenBtn"
-                                class="w-full flex items-center px-5 py-2.5 text-sm text-gray-700 hover:bg-blue-50 transition text-left"
-                                title="Full Screen">
-                                <span id="fullscreenIcon"
-                                    class="material-icons !text-2xl mr-2 text-gray-800">fullscreen</span>
-                                <span id="fullscreenText"
-                                    class="font-normal text-gray-800 tracking-wide">Fullscreen</span>
-                            </button>
+                                {{-- Divider --}}
+                                <div class="border-t border-gray-200 dark:border-gray-700 my-1"></div>
 
-                            {{-- Logout --}}
-                            @if (Auth::check())
-                                <div class="border-t border-gray-200"></div> {{-- garis pemisah atas logout --}}
-                                <form action="{{ route('logout') }}" method="post">
-                                    @csrf
-                                    <button type="submit"
-                                        class="w-full flex items-center px-4 py-3 text-xs text-gray-700 hover:bg-red-50 transition justify-center">
-                                        <span class="material-icons mr-1 !text-[20px] text-red-600">logout</span>
-                                        <span class="font-medium tracking-wide text-red-600 uppercase">Logout</span>
-                                    </button>
-                                </form>
-                            @endif
+                                {{-- Fullscreen --}}
+                                <button id="fullscreenBtn"
+                                    class="w-full flex items-center gap-3 px-5 py-1.5 text-sm text-gray-700 dark:text-gray-300 
+                                        hover:bg-gray-100 dark:hover:bg-gray-800 transition text-left">
+                                    <span id="fullscreenIcon"
+                                        class="material-icons !text-[20px] text-gray-800 dark:text-gray-300">
+                                        crop_free
+                                    </span>
+                                    <span id="fullscreenText">Fullscreen</span>
+                                </button>
 
+                                {{-- Dark Mode --}}
+                                <button id="darkModeBtn"
+                                    class="w-full flex items-center gap-3  py-1.5 px-5 text-sm text-gray-700 dark:text-gray-300 
+                                        hover:bg-gray-100 dark:hover:bg-gray-800 transition text-left">
+                                    <span id="darkModeIcon"
+                                        class="material-icons !text-[20px] text-gray-800 dark:text-gray-300">
+                                        dark_mode
+                                    </span>
+                                    <span id="darkModeText">Dark Mode</span>
+                                </button>
+
+                                {{-- Divider --}}
+                                <div class="border-t border-gray-200 dark:border-gray-700 my-1"></div>
+
+                                {{-- Logout --}}
+                                @if (Auth::check())
+                                    <form action="{{ route('logout') }}" method="post">
+                                        @csrf
+                                        <button type="submit"
+                                            class="w-full flex items-center px-4 py-3 text-xs text-gray-700 hover:bg-red-50 transition justify-center">
+                                            <span class="material-icons mr-1 !text-[18px] text-red-600">logout</span>
+                                            <span
+                                                class="font-medium tracking-wide text-red-600 uppercase">Logout</span>
+                                        </button>
+                                    </form>
+                                @endif
+
+                            </div>
                         </div>
-
                     </div>
 
                 </div>
@@ -526,7 +557,7 @@
                             fullscreenIcon.textContent = "fullscreen_exit";
                             fullscreenText.textContent = "Exit Fullscreen";
                         } else {
-                            fullscreenIcon.textContent = "fullscreen";
+                            fullscreenIcon.textContent = "crop_free";
                             fullscreenText.textContent = "Fullscreen";
                         }
                     });
@@ -604,4 +635,4 @@
 
             {{-- main-content --}}
             <main class="flex-1 p-4">
-                <div class="bg-white rounded-lg shadow-sm p-6 h-full">
+                <div class="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-500 rounded-lg shadow-sm p-6 h-full">
