@@ -159,16 +159,16 @@
 {{-- Statistik Data Jurnal --}}
 <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
     {{-- Total Jurnal --}}
-    <div class="bg-white dark:bg-gray-900 border border-l-4 border-blue-400 dark:border-gray-700 
+    <div class="bg-white dark:bg-gray-900 border border-l-4 border-blue-400 dark:border-blue-400 
         rounded-lg p-5 shadow-sm hover:shadow-md transition">
-        <h3 class="text-xs text-gray-600">Total Jurnal</h3>
+        <h3 class="text-xs text-gray-600 dark:text-gray-300">Total Jurnal</h3>
         <p class="text-2xl font-semibold text-gray-800 dark:text-white mt-1">
             {{ $statJurnal->total }}
         </p>
     </div>
 
     {{-- Pending --}}
-    <div class="bg-white dark:bg-gray-900 border border-l-4 border-amber-300 dark:border-gray-700 
+    <div class="bg-white dark:bg-gray-900 border border-l-4 border-amber-300 dark:border-amber-300 
         rounded-lg p-5 shadow-sm hover:shadow-md transition">
         <h3 class="text-xs text-amber-600">Jurnal Ditunda</h3>
         <p class="text-2xl font-semibold text-gray-800 dark:text-white mt-1">
@@ -177,7 +177,7 @@
     </div>
 
     {{-- Approved --}}
-    <div class="bg-white dark:bg-gray-900 border border-l-4 border-emerald-400 dark:border-gray-700 
+    <div class="bg-white dark:bg-gray-900 border border-l-4 border-emerald-400 dark:border-emerald-400 
         rounded-lg p-5 shadow-sm hover:shadow-md transition">
         <h3 class="text-xs text-emerald-600">Jurnal Disetujui</h3>
         <p class="text-2xl font-semibold text-gray-800 dark:text-white mt-1">
@@ -186,7 +186,7 @@
     </div>
 
     {{-- Rejected --}}
-    <div class="bg-white dark:bg-gray-900 border border-l-4 border-red-400 dark:border-gray-700 
+    <div class="bg-white dark:bg-gray-900 border border-l-4 border-red-400 dark:border-red-400 
         rounded-lg p-5 shadow-sm hover:shadow-md transition">
         <h3 class="text-xs text-red-600">Jurnal Ditolak</h3>
         <p class="text-2xl font-semibold text-gray-800 dark:text-white mt-1">
@@ -198,9 +198,9 @@
 {{-- Statistik Approved, Disetujui, dan Publisher Aktif --}}
 <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
     {{-- Approval Rate --}}
-    <div class="bg-white dark:bg-gray-900 border border-l-4 border-indigo-600 dark:border-gray-700 
+    <div class="bg-white dark:bg-gray-900 border border-l-4 border-indigo-600 dark:border-indigo-600 
         rounded-lg p-5 shadow-sm hover:shadow-md transition">
-        <h3 class="text-xs text-gray-500">Approval Rate</h3>
+        <h3 class="text-xs text-gray-500 dark:text-gray-300">Approval Rate</h3>
         <div class="flex items-end justify-between mt-2">
             <p class="text-2xl font-semibold text-gray-800 dark:text-white">
                 {{ $approvalRate }}%
@@ -212,9 +212,9 @@
     </div>
 
     {{-- Approved This Month --}}
-    <div class="bg-white dark:bg-gray-900 border border-l-4 border-green-600 dark:border-gray-700 
+    <div class="bg-white dark:bg-gray-900 border border-l-4 border-green-600 dark:border-green-600 
         rounded-lg p-5 shadow-sm hover:shadow-md transition">
-        <h3 class="text-xs text-gray-500">Disetujui Bulan Ini</h3>
+        <h3 class="text-xs text-gray-500 dark:text-gray-300">Disetujui Bulan Ini</h3>
         <div class="flex items-end justify-between mt-2">
             <p class="text-2xl font-semibold text-gray-800 dark:text-white">
                 {{ $approvedThisMonth }}
@@ -226,9 +226,9 @@
     </div>
 
     {{-- Publisher Aktif --}}
-    <div class="bg-white dark:bg-gray-900 border border-l-4 border-blue-600 dark:border-gray-700 
+    <div class="bg-white dark:bg-gray-900 border border-l-4 border-blue-600 dark:border-blue-600 
         rounded-lg p-5 shadow-sm hover:shadow-md transition">
-        <h3 class="text-xs text-gray-500">Publisher Aktif</h3>
+        <h3 class="text-xs text-gray-500 dark:text-gray-300">Publisher Aktif</h3>
         <div class="flex items-end justify-between mt-2">
             <p class="text-2xl font-semibold text-gray-800 dark:text-white">
                 {{ $publisherAktif }}

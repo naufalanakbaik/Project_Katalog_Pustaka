@@ -13,7 +13,7 @@ class KategoriController extends Controller
         $query = $request->input('cari');
 
         if ($query) {
-            // metode bagian cari/ search
+            // metode bagian cari / search
             $allKategori = Kategori::when($query, function($queryBuilder) use($query){
                 $queryBuilder->where('nama_kategori', 'like', '%' . $query . '%');
             })->paginate(5);

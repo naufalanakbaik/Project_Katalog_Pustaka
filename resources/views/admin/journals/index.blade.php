@@ -3,42 +3,42 @@
 
     {{-- Header --}}
     <div class="mb-6">
-        <h2 class="text-2xl font-medium text-gray-900"> Daftar Jurnal Publisher</h2>
-        <p class="mt-1 text-sm text-gray-500">
+        <h2 class="text-2xl font-medium text-gray-900 dark:text-gray-100"> Daftar Jurnal Publisher</h2>
+        <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
             Daftar jurnal yang diunggah publisher
         </p>
     </div>
 
     {{-- Alert --}}
     @if (session('success'))
-        <div class="mb-5 rounded-xl border border-green-200 bg-green-50 px-5 py-4 text-sm text-green-700">
+        <div class="mb-5 rounded-xl border border-green-200 dark:border-green-800 dark:bg-green-900/20 bg-green-50 px-5 py-4 text-sm text-green-700 dark:text-green-400">
             {{ session('success') }}
         </div>
     @endif
 
     <div class="space-y-4">
         @forelse($journals as $journal)
-            <div class="rounded-xl border border-gray-300 bg-white p-5 shadow-sm hover:shadow-md transition">
+            <div class="rounded-xl border border-gray-300 dark:bg-gray-800 bg-white p-5 shadow-sm hover:shadow-md transition">
                 <div class="flex items-start justify-between gap-6">
                     {{-- Left content --}}
                     <div class="flex-1">
                         <a href="{{ route('admin.journals.show', $journal->id) }}">
-                            <h3 class="text-lg font-semibold text-gray-900 hover:text-blue-800">
+                            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 hover:text-blue-800">
                                 {{ $journal->judul }}
                             </h3>
                         </a>
 
-                        <div class="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-500">
+                        <div class="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-500 dark:text-gray-400">
                             <span>
                                 Publisher :
-                                <span class="font-medium text-gray-700">
+                                <span class="font-medium text-gray-700 dark:text-gray-300">
                                     {{ $journal->publisher->name ?? '-' }}
                                 </span>
                             </span>
                             <span>•</span>
                             <span>
                                 📰 Tahun :
-                                <span class="font-medium text-gray-700">
+                                <span class="font-medium text-gray-700 dark:text-gray-300">
                                     {{ $journal->tahun_terbit }}
                                 </span>
                             </span>

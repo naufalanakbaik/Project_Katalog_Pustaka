@@ -86,11 +86,10 @@
         </div>
 
         {{-- Button --}}
-        {{-- Button --}}
         <div class="flex justify-end gap-3">
             <a href="{{ route('publisher.journals.index') }}"
                 class="px-4 py-2 text-sm font-medium
-                text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600
+                text-gray-700 dark:text-gray-300 border border-gray-400 dark:border-gray-600
                 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 tracking-wide transition shadow-sm">
                 Batal
             </a>
