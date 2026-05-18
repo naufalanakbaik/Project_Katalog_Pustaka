@@ -9,6 +9,7 @@
 
     {{-- chart js --}}
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     {{-- web icon --}}
     <link rel="icon" type="image/png" sizes="128x128" href="{{ asset('img/logo-katalog_pustaka.png') }}">
 
@@ -121,12 +122,13 @@
             {{-- Head admin  Tombol Minimize --}}
             <div
                 class="p-4 flex justify-center items-center bg-white dark:bg-gray-900 text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-500">
-                <span id="sidebar-title" class="text-base text-gray-900 dark:text-white font-medium mr-3">Halaman
-                    Admin</span>
+                <span id="sidebar-title" class="text-base text-gray-800 dark:text-white font-medium">
+                    Halaman Admin
+                </span>
                 <button id="toggleSidebar"
                     class="flex items-center justify-center w-10 h-10 rounded-2xl hover:text-blue-400 transition-colors">
                     <span id="toggleIcon"
-                        class="material-icons text-gray-900 dark:text-white !text-[20px] hover:text-blue-700 dark:hover:text-blue-300">
+                        class="material-icons pt-1 text-gray-900 dark:text-white !text-[17px] hover:text-blue-700 dark:hover:text-blue-300">
                         keyboard_arrow_left
                     </span>
                 </button>
@@ -260,8 +262,11 @@
             </nav>
 
             <!-- Footer Sidebar -->
-            <div class="border-t border-gray-200 p-4">
-                <div class="flex items-center gap-2.5 ">
+            <div class="bg-gray-50 border-t border-blue-200 p-4 dark:bg-gray-800">
+                <p class="text-xs text-gray-700 dark:text-gray-200 justify-center text-center">
+                    <span class="font-medium text-gray-800 dark:text-gray-200">© {{ date('Y') }}</span> Katalog Pustaka Digital.
+                </p>
+                {{-- <div class="flex items-center gap-2.5 ">
                     <div class="w-9 h-9 rounded-full bg-gray-200 flex items-center justify-center">
                         <span class="material-icons text-gray-600 text-[20px]">
                             person
@@ -276,7 +281,7 @@
                             Administrator
                         </p>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </aside>
 
@@ -638,5 +643,5 @@
 
             {{-- main-content --}}
             <main class="flex-1 p-4">
-                <div
-                    class="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-500 rounded-lg shadow-sm p-6 h-full">
+                <div class="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-500 rounded-lg 
+                shadow-sm p-6 h-full">

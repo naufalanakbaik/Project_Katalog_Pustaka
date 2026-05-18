@@ -96,31 +96,4 @@ class DashboardController extends Controller
             'topDownloads'
         ));
     }
-
-    // public function notifications()
-    // {
-    //     $notifications = auth()->user()->notifications()->latest()->paginate(10);
-
-    //     return view('publisher.notifications.index', compact('notifications'));
-    // }
-    // public function markAsRead($id)
-    // {
-    //     $notification = auth()->user()
-    //         ->notifications()
-    //         ->where('id', $id)
-    //         ->first();
-
-    //     if ($notification) {
-    //         $notification->markAsRead();
-    //     }
-
-    //     return back();
-    // }
-    // public function markAllRead()
-    // {
-    //     auth()->user()->unreadNotifications->markAsRead();
-
-    //     return back();
-    // }
-
 }

@@ -97,7 +97,7 @@
             <button type="submit"
                 class="px-5 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg
                 hover:bg-blue-800 tracking-normal transition shadow-sm">
-                Update Jurnal
+                Submit Jurnal
             </button>
         </div>
     </form>

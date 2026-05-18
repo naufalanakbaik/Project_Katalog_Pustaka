@@ -84,7 +84,7 @@
 {{-- Table data --}}
 <div class="overflow-x-auto border border-blue-300 rounded-md shadow-sm bg-white">
     <table class="w-full text-base">
-        <thead class="bg-blue-100 text-sm text-gray-900 border-b border-blue-300 tracking-wide">
+        <thead class="bg-blue-50 text-sm text-gray-900 border-b border-blue-300">
             <tr>
                 <th class="px-2 py-3 text-center font-medium">No.</th>
                 <th class="px-2 py-3 text-left font-medium">Nama</th>
@@ -135,7 +135,7 @@
 
 {{-- pagination --}}
 <div class="mt-3">
-    {{ $allUsers->links('vendor.pagination.tailwind') }}
+    {{ $allUsers->links('vendor.pagination.tailwind-darkmode') }}
 </div>
 
 @include('admin.layout.footer')

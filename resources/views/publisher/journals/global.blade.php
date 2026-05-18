@@ -1,6 +1,7 @@
 @extends('publisher.layouts.app')
 @section('title', 'Katalog Jurnal Global')
 
+
 @section('content')
     {{-- Header --}}
     <div class="mb-6">

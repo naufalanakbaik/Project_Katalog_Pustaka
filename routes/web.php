@@ -25,7 +25,6 @@ Route::get('/register', [AuthManualController::class, 'register'])->name('regist
 Route::post('/register', [AuthManualController::class, 'registerProses'])->name('registerProses');
 Route::post('/logout', [AuthManualController::class, 'logout'])->name('logout');
 
-
 /*|------------------------------------------------------------------------|
 |                                   USER                                   |
 |--------------------------------------------------------------------------*/

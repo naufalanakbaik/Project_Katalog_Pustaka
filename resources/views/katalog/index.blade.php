@@ -133,7 +133,7 @@
 
                 <button type="submit"
                     class="bg-blue-700 hover:bg-blue-800
-                text-white font-semibold px-5 rounded-r-lg shadow-sm transition flex items-center justify-center">
+                    text-white font-semibold px-5 rounded-r-lg shadow-sm transition flex items-center justify-center">
                     <span class="material-icons text-base">search</span>
                 </button>
             </div>
@@ -201,7 +201,7 @@
 
         <!-- Pagination -->
         <div class="mt-10">
-            {{ $buku->links() }}
+            {{ $buku->links('vendor.pagination.tailwind-darkmode') }}
         </div>
     </section>
 @endsection

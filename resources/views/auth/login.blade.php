@@ -12,9 +12,12 @@
 </head>
 
 <body>
+    <!-- Gambar Katalog Pustaka -->
     <div class="logo-header">
-        <img src="img/katalog-pustaka2.png" alt="Logo Gabungan" />
+        <img src="{{ asset('img/katalog-pustaka2.png') }}" alt="Logo Gabungan" />
     </div>
+    
+    <!-- Container Login -->
     <div class="login-container">
         <h1>Halaman Login</h1>
         <form action="{{ route('loginProses') }}" method="post">

@@ -32,7 +32,7 @@
 
 <div class="overflow-x-auto border border-gray-300 rounded-md shadow-sm bg-white">
     <table class="w-full text-base">
-        <thead class="bg-gray-200 text-sm text-gray-900 border-b border-gray-300 tracking-wide">
+        <thead class="bg-gray-50 text-sm text-gray-950 border-b border-gray-300">
             <tr>
                 <th class="px-4 py-3 text-center font-medium">No.</th>
                 <th class="px-5 py-3 text-left font-medium">Cover</th>
@@ -94,7 +94,7 @@
 </div>
 
 <div class="mt-3">
-    {{ $allBuku->links('vendor.pagination.tailwind') }}
+    {{ $allBuku->links('vendor.pagination.tailwind-darkmode') }}
 </div>
 
 @include('admin.layout.footer')

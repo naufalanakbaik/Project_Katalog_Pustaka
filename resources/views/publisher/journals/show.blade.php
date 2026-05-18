@@ -79,7 +79,7 @@
                 <div class="flex flex-wrap gap-3 border-t border-gray-200 dark:border-gray-700 pt-6">
                     <!-- Baca -->
                     <a href="{{ asset('storage/' . $journal->file_path) }}" target="_blank"
-                        class="inline-flex items-center gap-2 bg-red-600 border border-red-700 hover:bg-red-700 text-white px-4 py-2 rounded-xl text-sm font-semibold transition shadow">
+                        class="inline-flex items-center gap-2 bg-red-600 border border-red-700 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition shadow">
                         <span class="material-icons !text-xl">
                             picture_as_pdf
                         </span>
@@ -88,7 +88,7 @@
 
                     <!-- Download -->
                     <a href="{{ route('journal.download', $journal->id) }}"
-                        class="inline-flex items-center gap-2 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-2 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-200 transition">
+                        class="inline-flex items-center gap-2 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 px-4 py-2 rounded-lg text-sm font-semibold text-gray-700 dark:text-gray-200 transition">
                         <span class="material-icons !text-xl">
                             file_download
                         </span>

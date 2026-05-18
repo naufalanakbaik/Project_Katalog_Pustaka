@@ -97,7 +97,8 @@
                                 </a>
                                 {{-- Hapus --}}
                                 <form action="{{ route('publisher.journals.destroy', $journal->id) }}" method="POST"
-                                    class="m-0" onsubmit="return confirm('Yakin ingin menghapus jurnal ini?')"> @csrf
+                                    class="m-0" onsubmit="return confirm('Yakin ingin menghapus jurnal ini?')">
+                                    @csrf
                                     @method('DELETE')
                                     <button type="submit" class="text-red-600 hover:text-red-800 font-medium transition">
                                         Hapus

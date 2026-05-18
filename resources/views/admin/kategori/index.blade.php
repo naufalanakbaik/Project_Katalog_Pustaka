@@ -35,10 +35,10 @@
 </div>
 
 {{-- table data --}}
-<div class="overflow-x-auto bg-white border border-blue-300 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-300">
+<div class="overflow-x-auto bg-white border border-gray-300 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-300">
     <table class="w-full text-base">
-        <thead class="bg-gray-200 text-sm text-gray-900 border-b border-blue-300
-        dark:bg-gray-700 dark:text-gray-200 dark:border-gray-200 tracking-wide">
+        <thead class="bg-gray-50 text-sm text-gray-950 border-b border-gray-300
+        dark:bg-gray-800 dark:text-gray-200 dark:border-gray-200">
             <tr>
                 <th class="px-2 py-3 text-center font-medium">No.</th>
                 <th class="px-5 py-3 text-left font-medium">Nama Kategori</th>
